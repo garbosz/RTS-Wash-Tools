@@ -1,0 +1,126 @@
+---
+tags:
+  - AMZL
+---
+# Main How To
+## Pre Bridge Prep
+- check routes and mark anything that still needs to be marked
+	- basically get cortex as close to 0 as possible
+	- in station/ on road scrub
+		- in station and on road scrub can go back to back but you need to wait 10 minutes between on road and review missing/lost
+		- dont forget to review missing and lost packages
+- [OTR PERFECT MILE](https://perfectmile-na.amazon.com/dashboards/woodwajo/region/NA/daily?tab=55679&start-date=2023-08-06&end-date=2023-08-12&drilldowns=location/cycle_name/dsp&filter-in-location=%5BDBO6%5D)
+## PNOV Bridge
+- copy table from PNOV war room
+- go to pnov tracker (anything under 250 is good but bridge to 0)
+	- paste into [PNOV Tracker](https://share.amazon.com/sites/dbo6/_layouts/15/WopiFrame2.aspx?sourcedoc=%7Bd70fc45f-50c2-4649-bbf2-518ce6d5a6f3%7D&action=edit&wdInitialSession=c2db8ba0-519e-a0bf-d2b7-352f7085d808&wdRldC=1)
+		- when you add the heading for today highlight the blue and add filter using the top bar
+- add data filter table and sort by status(column 3rd from the right)
+- go to perfect mile and start bridge(parcel NOV DPMO)
+	- threshold for bridge is 0
+	- title: parcel NOV DPMO
+	- root causecategory: marked missing unable to deliver
+		- root cause: 0
+	- Details: parcel nov dpmo at number against goal of 0, number packages go against number dispatched
+		- copy TBA, DA, and DSP columns
+			- have a category for lost
+			- have a category for RTS (note if returned by same DA)
+	- get DMPO from pnov dpmo calculator
+	- actions: make something business up 
+		- you could callout the RTS items to the respective DSPs
+		- theres not much you can do with lost packages
+## RTS Bridge (bridge version)
+- plug into DPMO Calculator
+- check ootd DPMO
+- PERFECT MILE BRIDGE
+	- threshold is 5k dpmo
+	- grab config RTS file
+	- grab rts email
+		- refresh and double click on returns blank
+		- sort by z to a and see who returned alot of ootd
+			- basically your looking for things that were returned incorrectly
+				- late delivery, returned as delivered, damaged, rejected, anything scrubbed are all blanks
+			- this will also show all the scrub missings at the bottom of the page
+	- root causes: return to station at number against goal of 5000, rts number packages make up the miss against sort volume dispatched
+	- copy paste the return orange section to itemize returns
+		- only do the top offenders
+	- notable blanks
+		- paste the biggest offenders, such as scrub missing from flex
+		- note that they were scrubbed
+	- remember to look at previous day as a template
+	- end bridge by comparing DPMO with vs without the mentioned returns
+	- for details just copy paste all returns section on rts email file
+## RTS Bridge(email only)
+- make sure Outlook is open
+- make sure Config OTR file is open
+- make sure rts email excel is up to date and hit Email Button
+- verify info looks right then send
+## OOTD DPMO Bridge
+- basically rts bridge again
+- threshold for bridge is 1000 dpmo
+## PFSD Bridge
+- sameday DEA bridge
+	- Bridging for Previous day not today
+	- look for Same Day DEA controllable miss in perfect mile
+	- basically just note missed dispatch packages
+	- bridge to 0
+	- grab data from cell directly below for data on which packages missed
+	- get more details from Aaron on wed
+## Bilinski Wash.
+- note: dont send with links present
+- first page
+	- DSP OTD -> grab from link to the right
+	- Flex OTD -> mostly a guesstimate
+	- rts DPMO -> grab from rts dpmo bridge
+	- ootd dpmo -> grab from ootd dpmo bridge
+	- pnov dpmo -> grab from pnov dpmo bridge
+	- RTS Number -> grab from Mercury
+	- undispatched -> rolled volume or flex routes that didnt go out
+	- problem solve audit section -> mark yes or no if it was done
+	- liquid damage sim -> need to figure out
+	- fixit que snip -> link in the paste region
+		- grab issue type and to be fixed column
+- second page
+	- each section has a link to the relevant results
+	- RTS Reason codes -> grab from rts bridge excel file
+	- RTS Reason codes SCC Status -> grab raw data from rts bridge excel file
+		- grab tbas
+		- search in SCC
+		- download results 
+		- pivot as table
+			- tracking id in values
+			- state in rows
+			- sort from largest to smallest
+	- RTS by DSP
+		- copy each dsp total from green section in rts bridge excel file
+	- ootd by DSP
+		- go into returns by blank
+			- filter by out of delivery time
+			- sort by DSP
+	- business closed by DSP
+		- fo into returns by business closed
+		- same as returns by blank
+	- business closed by routes
+		- look at business closed and grab top offending drivers to find top offending routes
+	- high rts routes
+		- grab top rts route
+	- missing still missing
+		- from pnov bridge
+		- grab from cortex under dive deep for rts/pnov
+	- RTS same DA
+		- from pnov bridge
+		- grab from cortex under dive deep for rts/pnov
+	- rts different DA
+		- from pnov bridge
+		- grab from cortex under dive deep for rts/pnov
+- send to 
+	- get emails from greg
+	- copy page one into email
+	- copy page two into email
+	- copy repack tracker into email
+	- send/
+# Optimization ideas
+- [x] add dpmo calculator somewhere in final tool
+- [ ] create script to pull data from rts email 
+- [ ] create script to auto generate email similar to rts email tool
+- [ ] 
